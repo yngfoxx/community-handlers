@@ -1,0 +1,153 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+**/*.pyc
+*__pycache__*
+var
+etc
+mindsdb/logs
+logs
+tests/temp
+tests/integration/flows/config/*
+my_model.zip
+model.py
+tests/integration/flows/model.py
+tests/integration/flows/my_model.zip
+distributions/docker-compose/*/storage
+mindsdb-venv/*
+root
+static
+tmp
+tests/prediction_latency_test/*.csv
+storage_dir
+docker/dist/*
+.directory
+MindsDB.egg-info/*
+/build
+train_finetune.lock
+parser_tests
+auto_model
+autokeras
+structured_data_classifier
+structured_data_regressor
+mindsdb/integrations/handlers/autokeras_handler/structured_data_classifier
+AutogluonModels
+.history
+doc/lib/
+run.csh
+mindsdb/bin
+mindsdb/lib
+mindsdb/lib64
+pyvenv.cfg
+mindsdb/Scripts
+mindsdb/Include
+xgboost
+node_modules
+mindsdb/**/pyproject.toml
+mindsdb/**/uv.lock
+reports/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
