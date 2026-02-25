@@ -1,0 +1,1553 @@
+{
+  "version": "1.0",
+  "handlers": [
+    {
+      "name": "access",
+      "title": "Microsoft Access",
+      "folder": "access_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Microsoft Access"
+    },
+    {
+      "name": "aerospike",
+      "title": "Aerospike",
+      "folder": "aerospike_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Aerospike"
+    },
+    {
+      "name": "airtable",
+      "title": "Airtable",
+      "folder": "airtable_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Airtable"
+    },
+    {
+      "name": "altibase",
+      "title": "Altibase",
+      "folder": "altibase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Altibase"
+    },
+    {
+      "name": "anthropic",
+      "title": "Anthropic",
+      "folder": "anthropic_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Anthropic"
+    },
+    {
+      "name": "apache_doris",
+      "title": "Apache Doris",
+      "folder": "apache_doris_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Apache Doris"
+    },
+    {
+      "name": "aqicn",
+      "title": "Air Quality Index API",
+      "folder": "aqicn_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for World Air Quality Index"
+    },
+    {
+      "name": "athena",
+      "title": "Amazon Athena",
+      "folder": "athena_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Amazon Athena"
+    },
+    {
+      "name": "aurora",
+      "title": "Amazon Aurora",
+      "folder": "aurora_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Amazon Aurora"
+    },
+    {
+      "name": "azureblob",
+      "title": "Azure Blob Storage",
+      "folder": "azure_blob_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Azure Blob Storage"
+    },
+    {
+      "name": "bedrock",
+      "title": "Amazon Bedrock",
+      "folder": "bedrock_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Amazon Bedrock"
+    },
+    {
+      "name": "bigcommerce",
+      "title": "BigCommerce",
+      "folder": "bigcommerce_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "bigcommerce-black.svg",
+      "description": "MindsDB handler for BigCommerce"
+    },
+    {
+      "name": "binance",
+      "title": "Binance",
+      "folder": "binance_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Binance API"
+    },
+    {
+      "name": "byom",
+      "title": "BYOM",
+      "folder": "byom_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for BYOM"
+    },
+    {
+      "name": "cassandra",
+      "title": "Apache Cassandra",
+      "folder": "cassandra_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for CassandraDB"
+    },
+    {
+      "name": "chromadb",
+      "title": "ChromaDB",
+      "folder": "chromadb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for ChromaDB"
+    },
+    {
+      "name": "ckan",
+      "title": "CKAN",
+      "folder": "ckan_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for CKAN"
+    },
+    {
+      "name": "clickhouse",
+      "title": "ClickHouse",
+      "folder": "clickhouse_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for ClickHouse"
+    },
+    {
+      "name": "cloud_spanner",
+      "title": "Google Cloud Spanner",
+      "folder": "cloud_spanner_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Cloud Spanner"
+    },
+    {
+      "name": "cloud_sql",
+      "title": "Google Cloud SQL",
+      "folder": "cloud_sql_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Google Cloud SQL"
+    },
+    {
+      "name": "cockroachdb",
+      "title": "CockroachDB",
+      "folder": "cockroach_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for CockroachDB"
+    },
+    {
+      "name": "cohere",
+      "title": "Cohere",
+      "folder": "cohere_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Cohere"
+    },
+    {
+      "name": "coinbase",
+      "title": "Coinbase",
+      "folder": "coinbase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the CoinBase API"
+    },
+    {
+      "name": "confluence",
+      "title": "Confluence",
+      "folder": "confluence_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Confluence"
+    },
+    {
+      "name": "couchbase",
+      "title": "Couchbase",
+      "folder": "couchbase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Couchbase"
+    },
+    {
+      "name": "couchbasevector",
+      "title": "CouchbaseVector",
+      "folder": "couchbasevector_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Couchbase as a Vector Store"
+    },
+    {
+      "name": "crate",
+      "title": "CrateDB",
+      "folder": "crate_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Crate DB"
+    },
+    {
+      "name": "d0lt",
+      "title": "D0lt",
+      "folder": "d0lt_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for D0lt"
+    },
+    {
+      "name": "databend",
+      "title": "Databend",
+      "folder": "databend_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Databend"
+    },
+    {
+      "name": "astra",
+      "title": "Datastax Astra DB",
+      "folder": "datastax_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for DataStax Astra DB"
+    },
+    {
+      "name": "db2",
+      "title": "IBM DB2",
+      "folder": "db2_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for IBM DB2"
+    },
+    {
+      "name": "derby",
+      "title": "Apache Derby DB",
+      "folder": "derby_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Apache Derby DB"
+    },
+    {
+      "name": "discord",
+      "title": "Discord",
+      "folder": "discord_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Discord"
+    },
+    {
+      "name": "dockerhub",
+      "title": "DockerHub",
+      "folder": "dockerhub_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Dockerhub"
+    },
+    {
+      "name": "documentdb",
+      "title": "Amazon DocumentDB",
+      "folder": "documentdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for DocumentDB"
+    },
+    {
+      "name": "dremio",
+      "title": "Dremio",
+      "folder": "dremio_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Dremio"
+    },
+    {
+      "name": "dropbox",
+      "title": "Dropbox",
+      "folder": "dropbox_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Dropbox"
+    },
+    {
+      "name": "druid",
+      "title": "Apache Druid",
+      "folder": "druid_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Apache Druid"
+    },
+    {
+      "name": "duckdb_faiss",
+      "title": "DuckDB Faiss",
+      "folder": "duckdb_faiss_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for DuckDB with Faiss vector indexing"
+    },
+    {
+      "name": "duckdb",
+      "title": "DuckDB",
+      "folder": "duckdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for DuckDB"
+    },
+    {
+      "name": "dynamodb",
+      "title": "Amazon DynamoDB",
+      "folder": "dynamodb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for DynamoDB"
+    },
+    {
+      "name": "edgelessdb",
+      "title": "EdgelessDB",
+      "folder": "edgelessdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for EdgelessDB"
+    },
+    {
+      "name": "elasticsearch",
+      "title": "Elasticsearch",
+      "folder": "elasticsearch_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Elasticsearch"
+    },
+    {
+      "name": "email",
+      "title": "Email",
+      "folder": "email_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for email"
+    },
+    {
+      "name": "empress",
+      "title": "Empress Embedded",
+      "folder": "empress_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Empress Embedded"
+    },
+    {
+      "name": "eventbrite",
+      "title": "Eventbrite",
+      "folder": "eventbrite_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for the Eventbrite API"
+    },
+    {
+      "name": "eventstoredb",
+      "title": "EventStoreDB",
+      "folder": "eventstoredb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for EventStoreDB"
+    },
+    {
+      "name": "faunadb",
+      "title": "FaunaDB",
+      "folder": "faunadb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for FaunaDB"
+    },
+    {
+      "name": "financial_modeling_prep",
+      "title": "Financial_Modeling_Prep",
+      "folder": "financial_modeling_prep_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Financial Modeling Prep API"
+    },
+    {
+      "name": "firebird",
+      "title": "Firebird",
+      "folder": "firebird_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Firebird"
+    },
+    {
+      "name": "frappe",
+      "title": "Frappe",
+      "folder": "frappe_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Frappe API"
+    },
+    {
+      "name": "gcs",
+      "title": "Google Cloud Storage",
+      "folder": "gcs_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Google Cloud Storage"
+    },
+    {
+      "name": "github",
+      "title": "GitHub",
+      "folder": "github_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for GitHub"
+    },
+    {
+      "name": "gitlab",
+      "title": "GitLab",
+      "folder": "gitlab_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for GitLab"
+    },
+    {
+      "name": "gmail",
+      "title": "Gmail",
+      "folder": "gmail_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Gmail"
+    },
+    {
+      "name": "gong",
+      "title": "Gong",
+      "folder": "gong_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "Gong conversation intelligence platform handler for MindsDB"
+    },
+    {
+      "name": "google_analytics",
+      "title": "Google Analytics",
+      "folder": "google_analytics_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Google Analytics"
+    },
+    {
+      "name": "google_books",
+      "title": "Google Books",
+      "folder": "google_books_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Books API"
+    },
+    {
+      "name": "google_calendar",
+      "title": "Google Calendar",
+      "folder": "google_calendar_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Calendar API"
+    },
+    {
+      "name": "google_content_shopping",
+      "title": "Google Content Shopping",
+      "folder": "google_content_shopping_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Content API for Shopping"
+    },
+    {
+      "name": "google_fit",
+      "title": "Google Fit",
+      "folder": "google_fit_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Fit APIs"
+    },
+    {
+      "name": "google_gemini",
+      "title": "Google Gemini",
+      "folder": "google_gemini_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Gemini (Bard) API"
+    },
+    {
+      "name": "google_search",
+      "title": "Google Search",
+      "folder": "google_search_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Search API"
+    },
+    {
+      "name": "greptimedb",
+      "title": "GreptimeDB",
+      "folder": "greptimedb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for GreptimeDB"
+    },
+    {
+      "name": "groq",
+      "title": "Groq",
+      "folder": "groq_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Groq"
+    },
+    {
+      "name": "hackernews",
+      "title": "Hacker News",
+      "folder": "hackernews_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for HackerNews"
+    },
+    {
+      "name": "hana",
+      "title": "SAP HANA",
+      "folder": "hana_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SAP HANA"
+    },
+    {
+      "name": "hive",
+      "title": "Hive",
+      "folder": "hive_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Hive2"
+    },
+    {
+      "name": "hsqldb",
+      "title": "HyperSQLDB",
+      "folder": "hsqldb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for HSQLDB"
+    },
+    {
+      "name": "huggingface_api",
+      "title": "Hugging Face API",
+      "folder": "huggingface_api_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Hugging Face Inference API"
+    },
+    {
+      "name": "huggingface",
+      "title": "Hugging Face",
+      "folder": "huggingface_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Higging Face"
+    },
+    {
+      "name": "ibm_cos",
+      "title": "IBM Cloud Object Storage",
+      "folder": "ibm_cos_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for IBM Cloud Object Storage"
+    },
+    {
+      "name": "ignite",
+      "title": "Apache Ignite",
+      "folder": "ignite_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Apache Ignite"
+    },
+    {
+      "name": "impala",
+      "title": "Apache Impala",
+      "folder": "impala_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Impala"
+    },
+    {
+      "name": "influxdb",
+      "title": "InfluxDB",
+      "folder": "influxdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for InfluxDB"
+    },
+    {
+      "name": "informix",
+      "title": "IBM Informix",
+      "folder": "informix_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for IBM Informix"
+    },
+    {
+      "name": "ingres",
+      "title": "Ingres",
+      "folder": "ingres_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Ingres"
+    },
+    {
+      "name": "instatus",
+      "title": "Instatus",
+      "folder": "instatus_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Instatus"
+    },
+    {
+      "name": "intercom",
+      "title": "Intercom",
+      "folder": "intercom_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Intercom"
+    },
+    {
+      "name": "jira",
+      "title": "Atlassian Jira",
+      "folder": "jira_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Jira"
+    },
+    {
+      "name": "kinetica",
+      "title": "Kinetica",
+      "folder": "kinetica_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Kinetica"
+    },
+    {
+      "name": "lancedb",
+      "title": "LanceDB",
+      "folder": "lancedb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for LanceDB"
+    },
+    {
+      "name": "libsql",
+      "title": "LibSQL",
+      "folder": "libsql_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for LibSQL"
+    },
+    {
+      "name": "lightdash",
+      "title": "Lightdash",
+      "folder": "lightdash_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Lightdash"
+    },
+    {
+      "name": "lindorm",
+      "title": "Lindorm",
+      "folder": "lindorm_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Lindorm"
+    },
+    {
+      "name": "litellm",
+      "title": "LiteLLM",
+      "folder": "litellm_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for LiteLLM"
+    },
+    {
+      "name": "llama_index",
+      "title": "LlamaIndex",
+      "folder": "llama_index_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for LlamaIndex"
+    },
+    {
+      "name": "luma",
+      "title": "Luma",
+      "folder": "luma_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Luma"
+    },
+    {
+      "name": "materialize",
+      "title": "Materialize",
+      "folder": "materialize_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Materialize"
+    },
+    {
+      "name": "matrixone",
+      "title": "MatrixOne",
+      "folder": "matrixone_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Matrixone"
+    },
+    {
+      "name": "maxdb",
+      "title": "SAP MaxDB",
+      "folder": "maxdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SAP MAXDB"
+    },
+    {
+      "name": "mediawiki",
+      "title": "MediaWiki",
+      "folder": "mediawiki_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for MediaWiki"
+    },
+    {
+      "name": "mendeley",
+      "title": "Mendeley",
+      "folder": "mendeley_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Mendeley"
+    },
+    {
+      "name": "milvus",
+      "title": "Milvus",
+      "folder": "milvus_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Milvus"
+    },
+    {
+      "name": "mlflow",
+      "title": "MLFlow",
+      "folder": "mlflow_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for MLflow"
+    },
+    {
+      "name": "monetdb",
+      "title": "MonetDB",
+      "folder": "monetdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for MonetDB"
+    },
+    {
+      "name": "mongodb",
+      "title": "MongoDB",
+      "folder": "mongodb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for MongoDB"
+    },
+    {
+      "name": "one_drive",
+      "title": "Microsoft One Drive",
+      "folder": "ms_one_drive_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Microsoft One Drive"
+    },
+    {
+      "name": "teams",
+      "title": "Microsoft Teams",
+      "folder": "ms_teams_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Microsoft Teams"
+    },
+    {
+      "name": "newsapi",
+      "title": "News API",
+      "folder": "newsapi_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for News API"
+    },
+    {
+      "name": "notion",
+      "title": "Notion",
+      "folder": "notion_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Notion"
+    },
+    {
+      "name": "npm",
+      "title": "NPM",
+      "folder": "npm_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for NPM"
+    },
+    {
+      "name": "nuo_jdbc",
+      "title": "NuoDB",
+      "folder": "nuo_jdbc_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Nuo DB"
+    },
+    {
+      "name": "oceanbase",
+      "title": "OceanBase",
+      "folder": "oceanbase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for OceanBase"
+    },
+    {
+      "name": "oilpriceapi",
+      "title": "Oil Price API",
+      "folder": "oilpriceapi_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for OilPriceAPI"
+    },
+    {
+      "name": "ollama",
+      "title": "Ollama",
+      "folder": "ollama_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Ollama"
+    },
+    {
+      "name": "openai",
+      "title": "OpenAI",
+      "folder": "openai_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for OpenAI"
+    },
+    {
+      "name": "openbb",
+      "title": "OpenBB",
+      "folder": "openbb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the OpenBB Platform"
+    },
+    {
+      "name": "opengauss",
+      "title": "openGauss",
+      "folder": "opengauss_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for openGauss"
+    },
+    {
+      "name": "openstreetmap",
+      "title": "OpenStreetMap",
+      "folder": "openstreetmap_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for OpenStreetMap"
+    },
+    {
+      "name": "orioledb",
+      "title": "OrioleDB",
+      "folder": "orioledb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for OrioleDB"
+    },
+    {
+      "name": "palm",
+      "title": "Google PaLM",
+      "folder": "palm_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for PaLM"
+    },
+    {
+      "name": "paypal",
+      "title": "PayPal",
+      "folder": "paypal_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for PayPal"
+    },
+    {
+      "name": "pgvector",
+      "title": "PGVector",
+      "folder": "pgvector_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for pgvector"
+    },
+    {
+      "name": "phoenix",
+      "title": "Apache Phoenix",
+      "folder": "phoenix_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Apache Phoenix"
+    },
+    {
+      "name": "pinecone",
+      "title": "Pinecone",
+      "folder": "pinecone_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Pinecone"
+    },
+    {
+      "name": "pinot",
+      "title": "Apache Pinot",
+      "folder": "pinot_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Apache Pinot"
+    },
+    {
+      "name": "pirateweather",
+      "title": "Pirate Weather",
+      "folder": "pirateweather_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for the PriateWeather API"
+    },
+    {
+      "name": "plaid",
+      "title": "Plaid",
+      "folder": "plaid_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Plaid"
+    },
+    {
+      "name": "planet_scale",
+      "title": "PlanetScale",
+      "folder": "planetscale_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for PlanetScale"
+    },
+    {
+      "name": "portkey",
+      "title": "Portkey",
+      "folder": "portkey_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Portkey"
+    },
+    {
+      "name": "pycaret",
+      "title": "PyCaret",
+      "folder": "pycaret_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for PyCaret"
+    },
+    {
+      "name": "pypi",
+      "title": "PyPI",
+      "folder": "pypi_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for PyPI"
+    },
+    {
+      "name": "qdrant",
+      "title": "Qdrant",
+      "folder": "qdrant_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Qdrant"
+    },
+    {
+      "name": "questdb",
+      "title": "QuestDB",
+      "folder": "questdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for QuestDB"
+    },
+    {
+      "name": "quickbooks",
+      "title": "QuickBooks",
+      "folder": "quickbooks_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Quickbooks"
+    },
+    {
+      "name": "ray_serve",
+      "title": "Ray Serve",
+      "folder": "ray_serve_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Ray Serve"
+    },
+    {
+      "name": "reddit",
+      "title": "Reddit",
+      "folder": "reddit_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Reddit"
+    },
+    {
+      "name": "rocket_chat",
+      "title": "Rocket Chat",
+      "folder": "rocket_chat_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Rocket Chat API"
+    },
+    {
+      "name": "rockset",
+      "title": "Rockset",
+      "folder": "rockset_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Rockset"
+    },
+    {
+      "name": "s3",
+      "title": "Amazon S3",
+      "folder": "s3_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for S3"
+    },
+    {
+      "name": "sap_erp",
+      "title": "SAP ERP",
+      "folder": "sap_erp_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SAP ERP"
+    },
+    {
+      "name": "scylladb",
+      "title": "ScyllaDB",
+      "folder": "scylla_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Scylla"
+    },
+    {
+      "name": "sendinblue",
+      "title": "Sendinblue",
+      "folder": "sendinblue_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Sendinblue"
+    },
+    {
+      "name": "serpstack",
+      "title": "Serpstack",
+      "folder": "serpstack_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Serpstack API"
+    },
+    {
+      "name": "sharepoint",
+      "title": "Microsoft Sharepoint",
+      "folder": "sharepoint_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Sharepoint"
+    },
+    {
+      "name": "sheets",
+      "title": "Google Sheets",
+      "folder": "sheets_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Google Sheets"
+    },
+    {
+      "name": "shopify",
+      "title": "Shopify",
+      "folder": "shopify_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Shopify"
+    },
+    {
+      "name": "singlestore",
+      "title": "SingleStore",
+      "folder": "singlestore_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SingleStore"
+    },
+    {
+      "name": "slack",
+      "title": "Slack",
+      "folder": "slack_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Slack"
+    },
+    {
+      "name": "solace",
+      "title": "Solace",
+      "folder": "solace_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Solace event broker"
+    },
+    {
+      "name": "solr",
+      "title": "Apache Solr",
+      "folder": "solr_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Solr"
+    },
+    {
+      "name": "sqlany",
+      "title": "SAP SQL Anywhere",
+      "folder": "sqlany_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SAP SQL Anywhere"
+    },
+    {
+      "name": "sqlite",
+      "title": "SQLite",
+      "folder": "sqlite_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SQLite"
+    },
+    {
+      "name": "sqreamdb",
+      "title": "SQreamDB",
+      "folder": "sqreamdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SQreamDB"
+    },
+    {
+      "name": "starrocks",
+      "title": "StarRocks",
+      "folder": "starrocks_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for StarRocks"
+    },
+    {
+      "name": "strapi",
+      "title": "Strapi",
+      "folder": "strapi_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Strapi"
+    },
+    {
+      "name": "strava",
+      "title": "Strava",
+      "folder": "strava_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Strava"
+    },
+    {
+      "name": "stripe",
+      "title": "Stripe",
+      "folder": "stripe_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Stripe"
+    },
+    {
+      "name": "supabase",
+      "title": "Supabase",
+      "folder": "supabase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Supabase"
+    },
+    {
+      "name": "surrealdb",
+      "title": "SurrealDB",
+      "folder": "surrealdb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for SurrealDB"
+    },
+    {
+      "name": "symbl",
+      "title": "Symbl",
+      "folder": "symbl_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Symbl"
+    },
+    {
+      "name": "tdengine",
+      "title": "TDEngine",
+      "folder": "tdengine_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for TDEngine"
+    },
+    {
+      "name": "teradata",
+      "title": "Teradata",
+      "folder": "teradata_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Teradata"
+    },
+    {
+      "name": "tidb",
+      "title": "TiDB",
+      "folder": "tidb_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for TiDB"
+    },
+    {
+      "name": "trino",
+      "title": "Trino",
+      "folder": "trino_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Trino"
+    },
+    {
+      "name": "tripadvisor",
+      "title": "TripAdvisor",
+      "folder": "tripadvisor_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Tripadvisor"
+    },
+    {
+      "name": "twilio",
+      "title": "Twilio",
+      "folder": "twilio_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Twilio"
+    },
+    {
+      "name": "twitter",
+      "title": "Twitter",
+      "folder": "twitter_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Twitter"
+    },
+    {
+      "name": "vertex",
+      "title": "Google Vertex AI",
+      "folder": "vertex_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Google Vertex AI API"
+    },
+    {
+      "name": "vertica",
+      "title": "Vertica",
+      "folder": "vertica_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Vertica"
+    },
+    {
+      "name": "vitess",
+      "title": "Vitess",
+      "folder": "vitess_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Vitess"
+    },
+    {
+      "name": "weaviate",
+      "title": "Weaviate",
+      "folder": "weaviate_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for weaviate"
+    },
+    {
+      "name": "web",
+      "title": "web",
+      "folder": "web_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for crawling web-sites"
+    },
+    {
+      "name": "webz",
+      "title": "Webz",
+      "folder": "webz_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the "
+    },
+    {
+      "name": "whatsapp",
+      "title": "WhatsApp",
+      "folder": "whatsapp_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for WhatsApp"
+    },
+    {
+      "name": "xata",
+      "title": "Xata",
+      "folder": "xata_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Xata"
+    },
+    {
+      "name": "youtube",
+      "title": "YouTube",
+      "folder": "youtube_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Youtube"
+    },
+    {
+      "name": "yugabyte",
+      "title": "YugabyteDB",
+      "folder": "yugabyte_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for YugabyteDB"
+    },
+    {
+      "name": "zendesk",
+      "title": "Zendesk",
+      "folder": "zendesk_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Zendesk"
+    },
+    {
+      "name": "zipcodebase",
+      "title": "ZipCodeBase",
+      "folder": "zipcodebase_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for ZipCodeBase"
+    },
+    {
+      "name": "zotero",
+      "title": "Zotero",
+      "folder": "zotero_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Zotero"
+    }
+  ]
+}
