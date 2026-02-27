@@ -344,24 +344,6 @@
       "description": "MindsDB handler for Apache Druid"
     },
     {
-      "name": "duckdb_faiss",
-      "title": "DuckDB Faiss",
-      "folder": "duckdb_faiss_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for DuckDB with Faiss vector indexing"
-    },
-    {
-      "name": "duckdb",
-      "title": "DuckDB",
-      "folder": "duckdb_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for DuckDB"
-    },
-    {
       "name": "dynamodb",
       "title": "Amazon DynamoDB",
       "folder": "dynamodb_handler",
@@ -531,15 +513,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for the Google Calendar API"
-    },
-    {
-      "name": "google_content_shopping",
-      "title": "Google Content Shopping",
-      "folder": "google_content_shopping_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for the Google Content API for Shopping"
     },
     {
       "name": "google_fit",
@@ -765,15 +738,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for Lindorm"
-    },
-    {
-      "name": "litellm",
-      "title": "LiteLLM",
-      "folder": "litellm_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.png",
-      "description": "MindsDB handler for LiteLLM"
     },
     {
       "name": "llama_index",

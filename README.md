@@ -1,0 +1,186 @@
+# MindsDB Community Handlers
+
+This repository contains community-maintained data and service handlers used by MindsDB to connect to external systems.
+Within the broader MindsDB ecosystem, these handlers extend the core platform so users can integrate additional sources and destinations without changing core MindsDB code.
+
+In MindsDB deployments, support for these community handlers can be enabled or disabled through MindsDB configuration.
+List of available handlers and their details are maintained in the `index.json` file at the root of this repository.
+
+Here are the handlers currently included in this repository:
+
+- Access
+- Aerospike
+- Airtable
+- Altibase
+- Anthropic
+- Apache Doris
+- Air Quality Index API
+- Amazon Athena
+- Amazon Aurora
+- Azure Blob Storage
+- Amazon Bedrock
+- BigCommerce
+- Binance
+- BYOM
+- Apache Cassandra
+- ChromaDB
+- CKAN
+- ClickHouse
+- Google Cloud Spanner
+- Google Cloud SQL
+- CockroachDB
+- Cohere
+- Coinbase
+- Confluence
+- Couchbase
+- CouchbaseVector
+- CrateDB
+- D0lt
+- Databend
+- Datastax Astra DB
+- IBM DB2
+- Apache Derby DB
+- Discord
+- DockerHub
+- Amazon DocumentDB
+- Dremio
+- Dropbox
+- Apache Druid
+- Amazon DynamoDB
+- EdgelessDB
+- Elasticsearch
+- Email
+- Empress Embedded
+- Eventbrite
+- EventStoreDB
+- FaunaDB
+- Financial_Modeling_Prep
+- Firebird
+- Frappe
+- Google Cloud Storage
+- GitHub
+- GitLab
+- Gmail
+- Gong
+- Google Analytics
+- Google Books
+- Google Calendar
+- Google Fit
+- Google Gemini
+- Google Search
+- GreptimeDB
+- Groq
+- Hacker News
+- SAP HANA
+- Hive
+- HyperSQLDB
+- Hugging Face API
+- Hugging Face
+- IBM Cloud Object Storage
+- Apache Ignite
+- Apache Impala
+- InfluxDB
+- IBM Informix
+- Ingres
+- Instatus
+- Intercom
+- Atlassian Jira
+- Kinetica
+- LanceDB
+- LibSQL
+- Lightdash
+- Lindorm
+- LlamaIndex
+- Luma
+- Materialize
+- MatrixOne
+- SAP MaxDB
+- MediaWiki
+- Mendeley
+- Milvus
+- MLFlow
+- MonetDB
+- MongoDB
+- Microsoft One Drive
+- Microsoft Teams
+- News API
+- Notion
+- NPM
+- NuoDB
+- OceanBase
+- Oil Price API
+- Ollama
+- OpenAI
+- OpenBB
+- openGauss
+- OpenStreetMap
+- OrioleDB
+- Google PaLM
+- PayPal
+- PGVector
+- Apache Phoenix
+- Pinecone
+- Apache Pinot
+- Pirate Weather
+- Plaid
+- PlanetScale
+- Portkey
+- PyCaret
+- PyPI
+- Qdrant
+- QuestDB
+- QuickBooks
+- Ray Serve
+- Reddit
+- Rocket Chat
+- Rockset
+- Amazon S3
+- SAP ERP
+- ScyllaDB
+- Sendinblue
+- Serpstack
+- Microsoft Sharepoint
+- Google Sheets
+- Shopify
+- SingleStore
+- Slack
+- Solace
+- Apache Solr
+- SAP SQL Anywhere
+- SQLite
+- SQreamDB
+- StarRocks
+- Strapi
+- Strava
+- Stripe
+- Supabase
+- SurrealDB
+- Symbl
+- TDEngine
+- Teradata
+- TiDB
+- Trino
+- TripAdvisor
+- Twilio
+- Twitter
+- Google Vertex AI
+- Vertica
+- Vitess
+- Weaviate
+- web
+- Webz
+- WhatsApp
+- Xata
+- YouTube
+- YugabyteDB
+- Zendesk
+- ZipCodeBase
+- Zotero
+
+## Contributing
+
+Contributions to this repository are welcome! If you have developed a new handler or improved an existing one, please submit a pull request with your changes. Make sure to follow the existing code structure and include tests for your handler.
+
+## License
+
+This repository is licensed under the MIT License. See the LICENSE file for more details.
