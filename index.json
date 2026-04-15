@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "generated_at": "2026-04-15T15:18:22Z",
+  "generated_at": "2026-04-15T17:10:52Z",
   "handlers": [
     {
       "name": "access",
@@ -21,6 +21,15 @@
       "description": "MindsDB handler for Aerospike"
     },
     {
+      "name": "ag2",
+      "title": "AG2",
+      "folder": "ag2_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for AG2 multi-agent framework"
+    },
+    {
       "name": "airtable",
       "title": "Airtable",
       "folder": "airtable_handler",
@@ -37,15 +46,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for Altibase"
-    },
-    {
-      "name": "anthropic",
-      "title": "Anthropic",
-      "folder": "anthropic_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Anthropic"
     },
     {
       "name": "apache_doris",
@@ -109,6 +109,15 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for the Binance API"
+    },
+    {
+      "name": "byom",
+      "title": "BYOM",
+      "folder": "byom_handler",
+      "type": "ml",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for BYOM"
     },
     {
       "name": "cassandra",
@@ -244,6 +253,15 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for IBM DB2"
+    },
+    {
+      "name": "denodo",
+      "title": "Denodo",
+      "folder": "denodo_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.png",
+      "description": "MindsDB handler for Denodo"
     },
     {
       "name": "derby",
@@ -397,6 +415,15 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for the Frappe API"
+    },
+    {
+      "name": "freshdesk",
+      "title": "Freshdesk",
+      "folder": "freshdesk_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Freshdesk"
     },
     {
       "name": "gcs",
@@ -1000,6 +1027,15 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for Quickbooks"
+    },
+    {
+      "name": "raindrop",
+      "title": "Raindrop.io",
+      "folder": "raindrop_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for Raindrop.io"
     },
     {
       "name": "reddit",
