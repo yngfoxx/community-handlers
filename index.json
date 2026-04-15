@@ -1,5 +1,6 @@
 {
   "version": "1.0",
+  "generated_at": "2026-04-15T15:18:22Z",
   "handlers": [
     {
       "name": "access",
@@ -92,21 +93,12 @@
       "description": "MindsDB handler for Azure Blob Storage"
     },
     {
-      "name": "bedrock",
-      "title": "Amazon Bedrock",
-      "folder": "bedrock_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Amazon Bedrock"
-    },
-    {
       "name": "bigcommerce",
       "title": "BigCommerce",
       "folder": "bigcommerce_handler",
       "type": "data",
       "support_level": "community",
-      "icon_path": "bigcommerce-black.svg",
+      "icon_path": "icon.svg",
       "description": "MindsDB handler for BigCommerce"
     },
     {
@@ -119,15 +111,6 @@
       "description": "MindsDB handler for the Binance API"
     },
     {
-      "name": "byom",
-      "title": "BYOM",
-      "folder": "byom_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for BYOM"
-    },
-    {
       "name": "cassandra",
       "title": "Apache Cassandra",
       "folder": "cassandra_handler",
@@ -135,15 +118,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for CassandraDB"
-    },
-    {
-      "name": "chromadb",
-      "title": "ChromaDB",
-      "folder": "chromadb_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.png",
-      "description": "MindsDB handler for ChromaDB"
     },
     {
       "name": "ckan",
@@ -189,15 +163,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for CockroachDB"
-    },
-    {
-      "name": "cohere",
-      "title": "Cohere",
-      "folder": "cohere_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Cohere"
     },
     {
       "name": "coinbase",
@@ -368,16 +333,7 @@
       "type": "data",
       "support_level": "community",
       "icon_path": "icon.svg",
-      "description": "MindsDB handler for Elasticsearch"
-    },
-    {
-      "name": "email",
-      "title": "Email",
-      "folder": "email_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.png",
-      "description": "MindsDB handler for email"
+      "description": "MindsDB handler for Elasticsearch with SQL-first query execution"
     },
     {
       "name": "empress",
@@ -515,6 +471,15 @@
       "description": "MindsDB handler for the Google Calendar API"
     },
     {
+      "name": "google_content_shopping",
+      "title": "Google Content Shopping",
+      "folder": "google_content_shopping_handler",
+      "type": "data",
+      "support_level": "community",
+      "icon_path": "icon.svg",
+      "description": "MindsDB handler for the Google Content API for Shopping"
+    },
+    {
       "name": "google_fit",
       "title": "Google Fit",
       "folder": "google_fit_handler",
@@ -551,15 +516,6 @@
       "description": "MindsDB handler for GreptimeDB"
     },
     {
-      "name": "groq",
-      "title": "Groq",
-      "folder": "groq_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Groq"
-    },
-    {
       "name": "hackernews",
       "title": "Hacker News",
       "folder": "hackernews_handler",
@@ -594,24 +550,6 @@
       "support_level": "community",
       "icon_path": "icon.png",
       "description": "MindsDB handler for HSQLDB"
-    },
-    {
-      "name": "huggingface_api",
-      "title": "Hugging Face API",
-      "folder": "huggingface_api_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Hugging Face Inference API"
-    },
-    {
-      "name": "huggingface",
-      "title": "Hugging Face",
-      "folder": "huggingface_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Higging Face"
     },
     {
       "name": "ibm_cos",
@@ -738,15 +676,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for Lindorm"
-    },
-    {
-      "name": "llama_index",
-      "title": "LlamaIndex",
-      "folder": "llama_index_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for LlamaIndex"
     },
     {
       "name": "luma",
@@ -911,24 +840,6 @@
       "description": "MindsDB handler for OilPriceAPI"
     },
     {
-      "name": "ollama",
-      "title": "Ollama",
-      "folder": "ollama_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.png",
-      "description": "MindsDB handler for Ollama"
-    },
-    {
-      "name": "openai",
-      "title": "OpenAI",
-      "folder": "openai_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for OpenAI"
-    },
-    {
       "name": "openbb",
       "title": "OpenBB",
       "folder": "openbb_handler",
@@ -981,15 +892,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for PayPal"
-    },
-    {
-      "name": "pgvector",
-      "title": "PGVector",
-      "folder": "pgvector_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for pgvector"
     },
     {
       "name": "phoenix",
@@ -1100,15 +1002,6 @@
       "description": "MindsDB handler for Quickbooks"
     },
     {
-      "name": "ray_serve",
-      "title": "Ray Serve",
-      "folder": "ray_serve_handler",
-      "type": "ml",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Ray Serve"
-    },
-    {
       "name": "reddit",
       "title": "Reddit",
       "folder": "reddit_handler",
@@ -1197,15 +1090,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for Google Sheets"
-    },
-    {
-      "name": "shopify",
-      "title": "Shopify",
-      "folder": "shopify_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for Shopify"
     },
     {
       "name": "singlestore",
@@ -1431,15 +1315,6 @@
       "support_level": "community",
       "icon_path": "icon.svg",
       "description": "MindsDB handler for weaviate"
-    },
-    {
-      "name": "web",
-      "title": "web",
-      "folder": "web_handler",
-      "type": "data",
-      "support_level": "community",
-      "icon_path": "icon.svg",
-      "description": "MindsDB handler for crawling web-sites"
     },
     {
       "name": "webz",
