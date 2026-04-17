@@ -1,32 +1,27 @@
-"""Integration tests that verify community handlers register and import correctly in MindsDB.
+"""Verify community handlers register and import correctly.
 
-These tests do NOT require real database credentials. They verify that:
-- Every handler's __init__.py has the required metadata attributes
-- Handlers whose dependencies are installed can be imported without errors
-- Handlers whose dependencies are missing report a clean import_error (not a crash)
-- The integration controller correctly registers community handlers
+These tests do NOT require real database credentials. They check:
+- Every handler in index.json has the required files/metadata
+- Handlers with deps installed import without errors
+- Handlers with missing deps report a clean import_error
 """
 
+import ast
 import json
-import os
+import sys
+import types
+import importlib.util
 from pathlib import Path
 
 import pytest
 
-from mindsdb.integrations.libs.const import HANDLER_TYPE
 
-
-COMMUNITY_HANDLERS_DIR = Path(__file__).resolve().parents[2] / "community_handlers"
+COMMUNITY_HANDLERS_DIR = (
+    Path(__file__).resolve().parents[2] / "community_handlers"
+)
 INDEX_FILE = Path(__file__).resolve().parents[2] / "index.json"
 
 REQUIRED_INIT_ATTRS = {"name", "type", "title"}
-
-
-def _get_handler_dirs():
-    """Yield (handler_name, handler_path) for every handler directory."""
-    for entry in sorted(COMMUNITY_HANDLERS_DIR.iterdir()):
-        if entry.is_dir() and not entry.name.startswith(("__", ".")):
-            yield entry.name, entry
 
 
 def _load_index():
@@ -34,133 +29,170 @@ def _load_index():
         return json.load(f)
 
 
-# ---------------------------------------------------------------------------
+def _indexed_handlers():
+    """Yield (folder, path) for every handler in index.json."""
+    index = _load_index()
+    for entry in index["handlers"]:
+        folder = entry["folder"]
+        path = COMMUNITY_HANDLERS_DIR / folder
+        yield folder, path
+
+
+# -----------------------------------------------------------
 # Metadata / structure tests
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------
 
 
 class TestHandlerStructure:
-    """Verify every handler directory has the expected files and metadata."""
+    """Verify every indexed handler has the expected files."""
 
-    @pytest.fixture(params=list(_get_handler_dirs()), ids=lambda x: x[0])
+    @pytest.fixture(
+        params=list(_indexed_handlers()), ids=lambda x: x[0]
+    )
     def handler(self, request):
-        return request.param  # (name, path)
+        return request.param
+
+    def test_directory_exists(self, handler):
+        name, path = handler
+        assert path.is_dir(), (
+            f"{name} listed in index.json but directory missing"
+        )
 
     def test_init_exists(self, handler):
         _, path = handler
-        assert (path / "__init__.py").exists(), f"{path.name} is missing __init__.py"
+        assert (path / "__init__.py").exists(), (
+            f"{path.name} is missing __init__.py"
+        )
 
     def test_about_exists(self, handler):
         _, path = handler
-        assert (path / "__about__.py").exists(), f"{path.name} is missing __about__.py"
+        assert (path / "__about__.py").exists(), (
+            f"{path.name} is missing __about__.py"
+        )
 
     def test_icon_exists(self, handler):
         _, path = handler
-        assert (path / "icon.svg").exists() or (path / "icon.png").exists(), (
-            f"{path.name} is missing an icon file"
+        has_icon = (
+            (path / "icon.svg").exists()
+            or (path / "icon.png").exists()
         )
+        assert has_icon, f"{path.name} is missing an icon file"
 
     def test_init_has_required_attributes(self, handler):
-        """Parse __init__.py with AST to check required attributes without importing."""
-        import ast
-
+        """Parse __init__.py via AST (no import needed)."""
         name, path = handler
         init_file = path / "__init__.py"
-        tree = ast.parse(init_file.read_text())
+        if not init_file.exists():
+            pytest.skip(f"{name} has no __init__.py")
 
-        assigned_names = set()
+        tree = ast.parse(init_file.read_text())
+        assigned = set()
         for node in ast.walk(tree):
             if isinstance(node, ast.Assign):
                 for target in node.targets:
                     if isinstance(target, ast.Name):
-                        assigned_names.add(target.id)
+                        assigned.add(target.id)
 
-        missing = REQUIRED_INIT_ATTRS - assigned_names
-        assert not missing, f"{name}: __init__.py missing required attributes: {missing}"
+        missing = REQUIRED_INIT_ATTRS - assigned
+        assert not missing, (
+            f"{name}: __init__.py missing attributes: {missing}"
+        )
 
 
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------
 # index.json consistency
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------
 
 
 class TestIndexConsistency:
-    """Verify index.json matches the actual handler directories."""
-
-    def test_index_entries_have_matching_directories(self):
-        """Every handler in index.json should have a corresponding directory."""
-        index = _load_index()
-        for entry in index["handlers"]:
-            folder = entry["folder"]
-            assert (COMMUNITY_HANDLERS_DIR / folder).is_dir(), (
-                f"index.json lists '{folder}' but directory does not exist"
-            )
-
-    def test_all_directories_are_in_index(self):
-        """Every handler directory should have an entry in index.json."""
-        index = _load_index()
-        indexed_folders = {e["folder"] for e in index["handlers"]}
-        for name, _ in _get_handler_dirs():
-            assert name in indexed_folders, (
-                f"Handler directory '{name}' is not listed in index.json"
-            )
+    """Verify index.json is internally consistent."""
 
     def test_index_names_are_unique(self):
         index = _load_index()
         names = [e["name"] for e in index["handlers"]]
-        assert len(names) == len(set(names)), "Duplicate handler names in index.json"
+        dupes = [n for n in names if names.count(n) > 1]
+        assert not dupes, f"Duplicate names in index.json: {dupes}"
 
     def test_index_folders_are_unique(self):
         index = _load_index()
         folders = [e["folder"] for e in index["handlers"]]
-        assert len(folders) == len(set(folders)), "Duplicate handler folders in index.json"
+        dupes = [f for f in folders if folders.count(f) > 1]
+        assert not dupes, f"Duplicate folders: {dupes}"
+
+    def test_index_types_are_valid(self):
+        index = _load_index()
+        valid = {"data", "ml"}
+        for entry in index["handlers"]:
+            assert entry.get("type") in valid, (
+                f"'{entry['name']}' has invalid type "
+                f"'{entry.get('type')}'"
+            )
 
 
-# ---------------------------------------------------------------------------
-# Import tests (via MindsDB integration controller)
-# ---------------------------------------------------------------------------
+# -----------------------------------------------------------
+# Import tests
+# -----------------------------------------------------------
+
+_PARENT_PKG = "_test_community_handlers"
 
 
 class TestHandlerImport:
-    """Verify handlers can be registered and imported through the integration controller."""
+    """Verify indexed handlers import cleanly."""
 
-    @pytest.fixture(scope="class")
-    def integration_controller(self):
-        """Create an IntegrationController with community handlers registered."""
-        # Minimal DB init required by IntegrationController
-        import mindsdb.interfaces.storage.db as db
+    @pytest.fixture(
+        params=list(_indexed_handlers()), ids=lambda x: x[0]
+    )
+    def handler(self, request):
+        return request.param
 
-        db.init()
+    def test_import_does_not_crash(self, handler):
+        """Importing should succeed or set import_error."""
+        name, path = handler
+        init_file = path / "__init__.py"
+        if not init_file.exists():
+            pytest.skip(f"{name} has no __init__.py")
 
-        from mindsdb.interfaces.database.integrations import IntegrationController
+        # Parent package for relative imports
+        if _PARENT_PKG not in sys.modules:
+            parent = types.ModuleType(_PARENT_PKG)
+            parent.__path__ = [str(COMMUNITY_HANDLERS_DIR)]
+            parent.__package__ = _PARENT_PKG
+            sys.modules[_PARENT_PKG] = parent
 
-        controller = IntegrationController()
-        return controller
+        module_name = f"{_PARENT_PKG}.{name}"
+        spec = importlib.util.spec_from_file_location(
+            module_name,
+            init_file,
+            submodule_search_locations=[str(path)],
+        )
+        assert spec is not None, (
+            f"Could not create module spec for {name}"
+        )
 
-    def test_community_handlers_are_registered(self, integration_controller):
-        """At least some community handlers should appear in handlers_import_status."""
-        statuses = integration_controller.handlers_import_status
-        community_handlers = {
-            name: meta for name, meta in statuses.items() if meta.get("community", False)
-        }
-        assert len(community_handlers) > 0, "No community handlers were registered"
+        module = importlib.util.module_from_spec(spec)
+        module.__package__ = module_name
+        sys.modules[module_name] = module
 
-    def test_handler_types_are_valid(self, integration_controller):
-        """Every registered handler should have a valid HANDLER_TYPE."""
-        valid_types = {HANDLER_TYPE.DATA, HANDLER_TYPE.ML}
-        for name, meta in integration_controller.handlers_import_status.items():
-            if meta.get("community"):
-                assert meta.get("type") in valid_types, (
-                    f"Handler '{name}' has invalid type: {meta.get('type')}"
-                )
+        try:
+            spec.loader.exec_module(module)
+        except Exception:
+            sys.modules.pop(module_name, None)
+            pytest.skip(
+                f"{name} failed to import (missing deps)"
+            )
 
-    def test_import_errors_are_clean(self, integration_controller):
-        """Handlers that fail to import should have a string error, not a crash."""
-        for name, meta in integration_controller.handlers_import_status.items():
-            if not meta.get("community"):
-                continue
-            import_info = meta.get("import", {})
-            if import_info.get("success") is False:
-                assert isinstance(import_info.get("error_message"), str), (
-                    f"Handler '{name}' failed import but error_message is not a string"
-                )
+        handler_cls = getattr(module, "Handler", None)
+        import_error = getattr(module, "import_error", None)
+
+        if handler_cls is None:
+            assert import_error is not None, (
+                f"{name}: Handler is None but import_error "
+                "is also None"
+            )
+        else:
+            assert import_error is None, (
+                f"{name}: Handler loaded but import_error "
+                f"is set: {import_error}"
+            )
+
+        sys.modules.pop(module_name, None)

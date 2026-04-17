@@ -1,0 +1,36 @@
+name: Check Handler Index
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check_index:
+    name: Verify index.json is up to date
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Regenerate index.json
+        run: python generate_index.py
+
+      - name: Check for drift
+        run: |
+          if git diff --exit-code index.json; then
+            echo "index.json is up to date"
+          else
+            echo ""
+            echo "ERROR: index.json is out of date."
+            echo "Run 'python generate_index.py' and commit the result."
+            exit 1
+          fi
