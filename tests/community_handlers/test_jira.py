@@ -11,7 +11,7 @@ import pandas as pd
 
 from base_handler_test import BaseAPIHandlerTest
 from mindsdb.integrations.libs.response import (
-    HandlerResponse as Response,
+    DataHandlerResponse as Response,
     HandlerStatusResponse as StatusResponse,
     RESPONSE_TYPE,
 )
