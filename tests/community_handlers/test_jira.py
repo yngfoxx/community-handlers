@@ -1,13 +1,15 @@
+"""Unit tests for Jira handler."""
+
+from collections import OrderedDict
+
 import pytest
 import unittest
-
 from unittest.mock import patch, MagicMock
 from requests.exceptions import HTTPError
 
 import pandas as pd
 
-
-from base_handler_test import BaseHandlerTestSetup
+from base_handler_test import BaseAPIHandlerTest
 from mindsdb.integrations.libs.response import (
     HandlerResponse as Response,
     HandlerStatusResponse as StatusResponse,
@@ -29,28 +31,36 @@ except ImportError:
     pytestmark = pytest.mark.skip("Jira handler not installed")
 
 
-class TestJiraHandler(BaseHandlerTestSetup, unittest.TestCase):
+class TestJiraHandler(BaseAPIHandlerTest, unittest.TestCase):
+    """Test Jira handler following standard test patterns."""
+
     @property
     def dummy_connection_data(self):
-        return {
-            "jira_url": "https://your-domain.atlassian.net",
-            "jira_username": "username",
-            "jira_api_token": "your_api_token",
-            "is_cloud": False,
-        }
+        return OrderedDict(
+            jira_url="https://test.atlassian.net",
+            jira_username="test@example.com",
+            jira_api_token="test_token_12345",
+            jira_cloud=True,
+        )
+
+    @property
+    def registered_tables(self):
+        return ["projects", "issues", "users", "groups", "attachments", "comments"]
 
     @property
     def err_to_raise_on_connect_failure(self):
-        return HTTPError("Failed to connect to Jira")
+        return Exception("Authentication failed")
 
     def create_handler(self):
-        return JiraHandler("jira", self.dummy_connection_data)
+        return JiraHandler("test_jira", connection_data=self.dummy_connection_data)
 
     def create_patcher(self):
         return patch("mindsdb.integrations.handlers.jira_handler.jira_handler.Jira")
 
+    # -- connection edge cases --
+
     def test_connect_cloud_success(self):
-        """Ensure cloud connections normalize credentials and reuse Jira constructor correctly."""
+        """Ensure cloud connections normalize credentials and call Jira correctly."""
         mock_client = MagicMock()
         self.mock_connect.return_value = mock_client
 
@@ -97,6 +107,8 @@ class TestJiraHandler(BaseHandlerTestSetup, unittest.TestCase):
         self.assertIn("Unauthorized", response.error_message)
         self.assertFalse(self.handler.is_connected)
 
+    # -- native_query --
+
     def test_native_query_http_error(self):
         """native_query should return an error response when Jira raises HTTPError."""
         mock_client = MagicMock()
@@ -123,25 +135,7 @@ class TestJiraHandler(BaseHandlerTestSetup, unittest.TestCase):
         issues_columns = JiraIssuesTable(self.handler).get_columns()
         self.assertListEqual(list(response.data_frame.columns), issues_columns)
 
-    def test_attachments_table_fetches_missing_fields(self):
-        """Attachments table should refresh issues to retrieve missing attachment fields."""
-        mock_client = MagicMock()
-        self.mock_connect.return_value = mock_client
-
-        issue_without_attachments = {"id": "1", "key": "ISSUE-1", "fields": {}}
-        mock_client.get_all_projects.return_value = [{"id": "100"}]
-        mock_client.get_all_project_issues.return_value = [issue_without_attachments]
-        mock_client.get_issue.return_value = {
-            "fields": {"attachment": [{"id": "att-1", "filename": "log.txt", "size": 10, "mimeType": "text/plain"}]}
-        }
-
-        attachments_table = JiraAttachmentsTable(self.handler)
-        result_df = attachments_table.list(limit=1)
-
-        self.assertEqual(len(result_df), 1)
-        self.assertEqual(result_df.loc[0, "attachment_id"], "att-1")
-        self.assertEqual(result_df.loc[0, "issue_key"], "ISSUE-1")
-        self.assertEqual(result_df.loc[0, "filename"], "log.txt")
+    # -- table-level tests --
 
     def test_issues_table_missing_assignee(self):
         """Test that issues without assignee are handled correctly."""
@@ -328,6 +322,26 @@ class TestJiraHandler(BaseHandlerTestSetup, unittest.TestCase):
 
         self.assertEqual(result_df.loc[0, "html"], "<a>Developers</a>")
         self.assertTrue(pd.isna(result_df.loc[1, "html"]))
+
+    def test_attachments_table_fetches_missing_fields(self):
+        """Attachments table should refresh issues to retrieve missing attachment fields."""
+        mock_client = MagicMock()
+        self.mock_connect.return_value = mock_client
+
+        issue_without_attachments = {"id": "1", "key": "ISSUE-1", "fields": {}}
+        mock_client.get_all_projects.return_value = [{"id": "100"}]
+        mock_client.get_all_project_issues.return_value = [issue_without_attachments]
+        mock_client.get_issue.return_value = {
+            "fields": {"attachment": [{"id": "att-1", "filename": "log.txt", "size": 10, "mimeType": "text/plain"}]}
+        }
+
+        attachments_table = JiraAttachmentsTable(self.handler)
+        result_df = attachments_table.list(limit=1)
+
+        self.assertEqual(len(result_df), 1)
+        self.assertEqual(result_df.loc[0, "attachment_id"], "att-1")
+        self.assertEqual(result_df.loc[0, "issue_key"], "ISSUE-1")
+        self.assertEqual(result_df.loc[0, "filename"], "log.txt")
 
     def test_comments_table_fetches_missing_fields(self):
         """Comments table should refresh issues to retrieve missing comment fields."""
