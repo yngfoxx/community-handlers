@@ -1,0 +1,131 @@
+name: Community Handler Tests
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+env:
+  MINDSDB_COMMUNITY_HANDLERS: "true"
+
+jobs:
+  test_handlers:
+    name: Run Community Handler Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout community-handlers
+        uses: actions/checkout@v4
+        with:
+          path: community-handlers
+
+      - name: Checkout mindsdb
+        uses: actions/checkout@v4
+        with:
+          repository: mindsdb/mindsdb
+          path: mindsdb
+          fetch-depth: 1
+
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install mindsdb
+        working-directory: mindsdb
+        run: |
+          uv pip install -e .
+
+      - name: Install test dependencies
+        run: |
+          uv pip install pytest
+
+      - name: Symlink community handlers into mindsdb
+        run: |
+          HANDLERS_DIR="${GITHUB_WORKSPACE}/mindsdb/mindsdb/integrations/handlers"
+          COMMUNITY_DIR="${GITHUB_WORKSPACE}/community-handlers/community_handlers"
+
+          for handler_dir in "${COMMUNITY_DIR}"/*/; do
+            handler_name=$(basename "$handler_dir")
+
+            # Skip __pycache__ and hidden directories
+            if [[ "$handler_name" == __* ]] || [[ "$handler_name" == .* ]]; then
+              continue
+            fi
+
+            # Don't overwrite built-in handlers
+            if [[ -e "${HANDLERS_DIR}/${handler_name}" ]]; then
+              echo "Skipped (built-in exists): ${handler_name}"
+              continue
+            fi
+
+            ln -s "$handler_dir" "${HANDLERS_DIR}/${handler_name}"
+            echo "Linked: ${handler_name}"
+          done
+
+      - name: Install handler-specific dependencies
+        run: |
+          COMMUNITY_DIR="${GITHUB_WORKSPACE}/community-handlers/community_handlers"
+          MINDSDB_DIR="${GITHUB_WORKSPACE}/mindsdb"
+
+          # Handlers that have centralized tests
+          TESTED_HANDLERS=(
+            clickhouse_handler
+            mongodb_handler
+            slack_handler
+            jira_handler
+            confluence_handler
+            dynamodb_handler
+            ms_teams_handler
+            s3_handler
+            openbb_handler
+            access_handler
+          )
+
+          for handler in "${TESTED_HANDLERS[@]}"; do
+            req_file="${COMMUNITY_DIR}/${handler}/requirements.txt"
+            if [[ -f "$req_file" ]]; then
+              echo "Installing deps for ${handler}..."
+              # Install from mindsdb dir so relative -r paths in requirements resolve
+              cd "${MINDSDB_DIR}"
+              uv pip install -r "$req_file" 2>&1 || echo "Warning: some deps for ${handler} failed to install (test will skip)"
+              cd "${GITHUB_WORKSPACE}"
+            fi
+          done
+
+      - name: Start MindsDB server
+        run: |
+          cd "${GITHUB_WORKSPACE}/mindsdb"
+          python -m mindsdb --api=http &
+          MINDSDB_PID=$!
+          echo "MINDSDB_PID=${MINDSDB_PID}" >> $GITHUB_ENV
+
+          # Wait for MindsDB to be ready
+          echo "Waiting for MindsDB to start..."
+          for i in $(seq 1 60); do
+            if curl -s http://127.0.0.1:47334/api/util/ping > /dev/null 2>&1; then
+              echo "MindsDB is ready (took ${i}s)"
+              break
+            fi
+            if [ "$i" -eq 60 ]; then
+              echo "ERROR: MindsDB failed to start within 60 seconds"
+              exit 1
+            fi
+            sleep 1
+          done
+
+      - name: Run community handler unit tests
+        working-directory: community-handlers
+        env:
+          PYTHONPATH: "${{ github.workspace }}/mindsdb:${{ github.workspace }}/mindsdb/tests/unit/handlers"
+        run: |
+          python -m pytest tests/community_handlers/ -v --tb=short
+
+      - name: Stop MindsDB server
+        if: always()
+        run: |
+          if [[ -n "${MINDSDB_PID}" ]]; then
+            kill "${MINDSDB_PID}" 2>/dev/null || true
+          fi
