@@ -81,7 +81,7 @@ class TestDatabricksHandler(unittest.TestCase):
     dummy_connection_data = OrderedDict(
         server_hostname="adb-1234567890123456.7.azuredatabricks.net",
         http_path="sql/protocolv1/o/1234567890123456/1234-567890-test123",
-        access_token="dapi1234567890ab1cde2f3ab456c7d89efa",
+        access_token="dapi1234567890ab1cde2f3ab456c7d89efa", #dummy token
     )
 
     def setUp(self):
