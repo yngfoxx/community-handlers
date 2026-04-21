@@ -94,7 +94,6 @@ def build_index() -> dict:
 
     return {
         "version": "1.0",
-        "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "handlers": handlers,
     }
 
