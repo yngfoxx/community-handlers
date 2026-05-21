@@ -137,8 +137,11 @@ class S3Handler(APIHandler):
             # Non-AWS S3-compatible endpoint (DO Spaces, MinIO, R2, ...).
             # Skip AWS-specific region autodetection (get_bucket_location is AWS-only).
             parsed = urlparse(self.connection_data["endpoint_url"])
-            host = parsed.netloc or parsed.path  # tolerate inputs without scheme
-            use_ssl = parsed.scheme != "http"
+            parsed = urlparse(self.connection_data["endpoint_url"])
+            if not parsed.netloc:  # schemeless input like 'minio:9000' or 'host.example.com:9000'
+                parsed = urlparse("//" + self.connection_data["endpoint_url"])
+            host = parsed.netloc or parsed.path
+            use_ssl = parsed.scheme == "https"  # default to no-SSL when scheme is absent
 
             duckdb_conn.execute(f"SET s3_endpoint='{host}'")
             duckdb_conn.execute(f"SET s3_use_ssl={'true' if use_ssl else 'false'}")
